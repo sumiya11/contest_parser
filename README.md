@@ -16,3 +16,4 @@ Deadlines file contains some lines of the following format:\
 `%m.%d.%y %h:%m:%s[ap]m=X`\
 where X is the the multiplier for the score of solutions, submitted before this deadline.
 
+One may check `test/dump.xml` and `test/deadlines.txt` for an illustration.
