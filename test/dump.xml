@@ -1,0 +1,34 @@
+<contestLog generationTime="">
+  <settings>
+    <contestName>Test contest</contestName>
+  </settings>
+  <problems>
+    <problem title="A" />
+    <problem title="B" />
+    <problem title="C" />
+    <problem title="D" />
+  </problems>
+  <users>
+    <user id="123" displayedName="Vasya" />
+    <user id="456" displayedName="Andrew"/>
+  </users>
+  <events>
+    <!-- [ ... ; first deadline ) -->
+    <submit absoluteTime="1579502480000" problemTitle="A" userId="123" verdict="OK" score="8.0" </submit>
+    <submit absoluteTime="1580037339000" problemTitle="B" userId="123" verdict="OK" score="7.0" </submit>
+    <submit absoluteTime="1580158799000" problemTitle="A" userId="456" verdict="OK" score="6.0" </submit>
+
+    <!-- [ first deadline; second deadline ) -->
+    <submit absoluteTime="1580158800000" problemTitle="B" userId="456" verdict="OK" score="7.0" </submit>
+    <submit absoluteTime="1580256000000" problemTitle="A" userId="123" verdict="OK" score="8.0" </submit>
+    <submit absoluteTime="1580763599000" problemTitle="C" userId="456" verdict="OK" score="3.0" </submit>
+
+    <!-- [ second deadline; last ) -->
+    <submit absoluteTime="1581368399000" problemTitle="D" userId="123" verdict="OK" score="8.0" </submit>
+    <submit absoluteTime="1582923599000" problemTitle="B" userId="456" verdict="OK" score="7.0" </submit>
+
+    <!-- [ last deadline; ... ) -->
+    <submit absoluteTime="1582923600000" problemTitle="D" userId="456" verdict="OK" score="8.0" </submit>
+
+  </events>
+</contestLog>
