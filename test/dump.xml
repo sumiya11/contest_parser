@@ -24,7 +24,7 @@
     <submit absoluteTime="1580763599000" problemTitle="C" userId="456" verdict="OK" score="3.0" </submit>
 
     <!-- [ second deadline; last ) -->
-    <submit absoluteTime="1581368399000" problemTitle="D" userId="123" verdict="OK" score="8.0" </submit>
+    <submit absoluteTime="1581368399000" problemTitle="D" userId="123" verdict="OK" score="-1.0" </submit>
     <submit absoluteTime="1582923599000" problemTitle="B" userId="456" verdict="OK" score="7.0" </submit>
 
     <!-- [ last deadline; ... ) -->
