@@ -3,6 +3,7 @@
 import sys
 import os
 import json
+import argparse
 
 from dateutil import parser
 from datetime import datetime
@@ -17,14 +18,25 @@ output_ext    = ".json"
     UTC+3:00
 """
 
-def main(argv):
-    input_file, deadlines_file = argv
 
-    # parse the deadlines
+def parseargs():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-i','--input', help='Path to contest dump file', required=True)
+    parser.add_argument('-d','--deadlines', help='Path to deadlines file', required=True)
+    parser.add_argument('-o','--output', help='Output filename', required=True)
+    return vars(parser.parse_args())
+
+
+def main():
+    args = parseargs()
+    input_file     = args["input"]
+    deadlines_file = args["deadlines"]
+    output_file    = args["output"]
+
+    # parse deadlines
     with open(deadlines_file) as inputs:
         deadlines = [
-            [ 1000 * int(parser.parse(timepoint).timestamp()),
-                float(scaling) ]
+            [ 1000 * int(parser.parse(timepoint).timestamp()), float(scaling) ]
             for timepoint, scaling in 
             [ line.split("=") for line in inputs.readlines() ]    
         ]
@@ -67,7 +79,8 @@ def main(argv):
                 max_scale = max(max_scale, scaling)
         # we want the best result so far
         userid_to_data[userid]["problems"][problem_title] = max(
-                max_scale * score,
+                # and give 0.5 for non-positive OKs
+                max_scale * score if score > 0 else 0.5,
                 userid_to_data[userid]["problems"][problem_title],
         )
 
@@ -80,7 +93,8 @@ def main(argv):
         os.mkdir(output_folder)
     
     # output file name is derived from the contest name 
-    output_file = soup.find("contestLog").settings.contestName.contents[0]
+    # output_file = soup.find("contestLog").settings.contestName.contents[0]
+    # !!! From now on filename must be passed to args
 
     with open(output_folder + "/" + output_file + output_ext, 'w') as outputs:
         json.dump(userid_to_data, outputs, ensure_ascii=False, indent="\t")        
@@ -89,7 +103,7 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    main()
 
 
 
