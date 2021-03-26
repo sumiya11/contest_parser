@@ -9,7 +9,7 @@ Two files:
 
 `$ python3 parser.py -i test/dump.xml -d test/deadlines.txt -o test`
 
-`$ python3 uploader.py -i standings/test.json -n 1 -c`
+`$ python3 uploader.py -i standings/test.json -n 1`
 
 \
 Contest dump file format is deafult(external logs). Deadlines file contains some lines of the following format:
