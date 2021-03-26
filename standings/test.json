@@ -1,5 +1,5 @@
 {
-	"123": {
+	"user-42": {
 		"name": "Vasya",
 		"problems": {
 			"A": 8.0,
@@ -9,7 +9,7 @@
 		},
 		"total": 15.5
 	},
-	"456": {
+	"admin-01": {
 		"name": "Andrew",
 		"problems": {
 			"A": 6.0,
